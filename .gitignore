@@ -2,3 +2,5 @@ ai-assessment-venv
 Backend/.env
 Backend/logs
 *.log
+Backend/modules/Utils/__pycache__
+Backend/config/__pycache__
