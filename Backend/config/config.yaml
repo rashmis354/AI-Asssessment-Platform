@@ -1,0 +1,11 @@
+LOGS_PATH : "/logs"
+LOGS_FOLDER_NAME : "logs"
+LOG_FILE_BASE_NAME : "ai_assessment_log_{log_date}.log"
+default_log_level: "DEBUG"
+backupCount: 5
+file_rotation: "D"
+file_rotation_interval: 1
+
+STATUS_FAILURE: "failure"
+STATUS_SUCCESS: "success"
+

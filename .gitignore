@@ -1,0 +1,4 @@
+ai-assessment-venv
+Backend/.env
+Backend/logs
+*.log
