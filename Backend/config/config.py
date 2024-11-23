@@ -1,5 +1,8 @@
 import os
 import yaml
+from dotenv import load_dotenv
+load_dotenv()
+
 
 class YamlParser(yaml.YAMLObject):
     yaml_loader = yaml.SafeLoader
@@ -28,3 +31,12 @@ default_log_level = config_details['default_log_level']
 backupCount = config_details['backupCount']
 file_rotation = config_details['file_rotation']
 file_rotation_interval = config_details['file_rotation_interval']
+
+code_review_prompt = config_details['code_review_prompt']
+code_review_user_prompt = config_details['code_review_user_prompt']
+
+azure_endpoint = config_details ['azure_endpoint']
+api_key = config_details ['api_key']
+api_version = config_details ['api_version']
+model_deployment_name = config_details ['model_deployment_name']
+

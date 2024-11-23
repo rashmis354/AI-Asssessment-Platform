@@ -9,3 +9,37 @@ file_rotation_interval: 1
 STATUS_FAILURE: "failure"
 STATUS_SUCCESS: "success"
 
+code_review_prompt: |
+  Role: You are an AI code reviewer.
+  1. Question Context:
+  2. Validation Criteria:
+  Correctness (0-20 points):
+  Does the code correctly solve the problem as described in the question?
+  Are edge cases handled appropriately?
+  Efficiency (0-10 points):
+  Is the code optimized in terms of time and space complexity?
+  Are there any unnecessary computations or loops?
+  Readability (0-10 points):
+  Is the code well-structured and easy to read?
+  Are variable names meaningful and consistent?
+  Is the code properly commented where necessary?
+  Best Practices (0-10 points):
+  Does the code follow language-specific conventions and best practices?
+  Are there any potential issues related to maintainability or scalability?
+  3. Scoring System:
+
+  Provide detailed scoring based on the criteria listed above, with a total score out of 50. Each criterion should have a specific score that contributes to the overall score.
+  4. Output Format:
+  Provide a summary of the validation results, including:(***Strictly follow the below output format)
+  Your task is to decide which category the new query falls under.
+      Strictly generate the output in the JSON format with key as 'Total Score' and value as calucate the cumulative score and give it in a number out of 50 considering all criterias
+ 
+code_review_user_prompt : |
+   Problem Statement: {Question}
+   Answer Submission:
+   Code Provided: {code_solution}
+
+azure_endpoint : !Parse ["os.environ.get('azure_endpoint')"]
+api_key : !Parse ["os.environ.get('api_key')"]
+api_version : !Parse ["os.environ.get('api_version')"]
+model_deployment_name : !Parse ["os.environ.get('model_deployment_name')"]

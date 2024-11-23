@@ -1,9 +1,11 @@
 import os
-from config.config import LOGS_PATH
+import json
+from config.config import LOGS_PATH,code_review_prompt,code_review_user_prompt
 # from modules.Utils.generate_log_file import logger
 import getpass
 import datetime
-
+from modules.OpenAI.azure_open_ai import make_request_json
+from modules.OpenAI.open_ai_helper_functions import create_openai_obj
 # Create Log Folder
 current_directory = os.getcwd()
 try:
@@ -91,7 +93,7 @@ def view_scheduled_assessments():
 
 def start_assessment(assessment):
     print(f"\nStarting Assessment: {assessment['name']}")
-
+    score = 0
     # Example questions
     coding_question = "Write a function to reverse a string."
     mcq_question = "What is the output of 5 + 3 * 2?"
@@ -110,7 +112,24 @@ def start_assessment(assessment):
             coding_answer = "Skipped"
             break
         elif choice == '2':
-            coding_answer = input("Your answer (code): ")
+            print("Enter your answer (code). Type 'END' on a new line when you are finished:")
+            coding_answer_lines = []
+            while True:
+                line = input()
+                if line.strip() == "END":
+                    break
+                coding_answer_lines.append(line)
+            coding_answer = "\n".join(coding_answer_lines)
+            msg_list = []
+            system_prompt = code_review_prompt
+            user_prompt = code_review_user_prompt.format(Question = coding_question,code_solution = coding_answer)
+            sys_open_ai_obj = create_openai_obj("system",system_prompt)
+            msg_list.append(sys_open_ai_obj)
+            user_open_ai_obj = create_openai_obj("user",user_prompt)
+            msg_list.append(user_open_ai_obj)
+            coding_result = json.loads(make_request_json(msg_list))
+            print(coding_result)
+            score = score + coding_result.get("Total Score")
             break
         else:
             print("Invalid input. Please enter 1 or 2.")
@@ -130,13 +149,15 @@ def start_assessment(assessment):
             while True:
                 mcq_answer = input("Choose the correct option (1-4): ")
                 if mcq_answer.isdigit() and 1 <= int(mcq_answer) <= 4:
+                    if int(mcq_answer) == 1:
+                        score = score + 50
                     break
                 else:
                     print("Invalid input. Please enter a number between 1 and 4.")
             break
         else:
             print("Invalid input. Please enter 1 or 2.")
-
+    
     # Submission
     print("\nAssessment submitted!")
     print(f"Coding Answer: {coding_answer} (Marked for review: {'Yes' if coding_review else 'No'})")
@@ -144,11 +165,16 @@ def start_assessment(assessment):
         print(f"MCQ Answer: {mcq_options[int(mcq_answer) - 1]} (Marked for review: {'Yes' if mcq_review else 'No'})")
     else:
         print(f"MCQ Answer: {mcq_answer} (Marked for review: {'Yes' if mcq_review else 'No'})")
-
+    print("\n")
+    print("******Total Assessment score*********")
+    print(score)
+    if score>=40:
+        print("Passed!!!")
+    else:
+        print("Failed!!!")    
 
 def mock_assessments():
     print("Starting Mock Assessment")
-    
     # Example questions
     coding_question = "Write a function to reverse a string."
     mcq_question = "What is the output of 5 + 3 * 2?"
@@ -347,10 +373,9 @@ def manual_upload():
     print("Assessment created successfully")
     print("Assessment Title: ", title)
     print("Assessment Date: ", date)
-    print("\n")
     print("Questions:")
     for q in questions:
-        print(f"- {q['title']} (Type: {q['type']})")
+        print(f"- {q['question']} (Type: {q['type']})")
 
 def candidate_dashboard():
     while True:
