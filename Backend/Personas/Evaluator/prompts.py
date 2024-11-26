@@ -49,7 +49,7 @@ MCQS_SKILL_SYSTEM_PROMPT = '''
 -You will be provided with the number of questions to generate, the domain of the topic, and the complexity level.
 -Ensure the questions thoroughly and equally test all relevant topics within the specified domain, according to the complexity level.
 
-###Output format:
+###***Output format: The output should be in JSON format, structured as follows:
 
 {
   question_number: {

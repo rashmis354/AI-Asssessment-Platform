@@ -1,10 +1,10 @@
  
  -------------- celery@vm-hex-tensai v5.4.0 (opalescent)
 --- ***** ----- 
--- ******* ---- Linux-6.5.0-1024-azure-x86_64-with-glibc2.35 2024-11-26 05:13:15
+-- ******* ---- Linux-6.5.0-1024-azure-x86_64-with-glibc2.35 2024-11-26 07:03:39
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         Tasks:0x75f1038061d0
+- ** ---------- .> app:         Tasks:0x742d60afe1d0
 - ** ---------- .> transport:   redis://localhost:6379/0
 - ** ---------- .> results:     redis://localhost:6379/0
 - *** --- * --- .> concurrency: 10 (prefork)
@@ -17,363 +17,40 @@
 [tasks]
   . modules.tasks.celery_tasks.openai_celery_task
 
-[2024-11-26 05:13:15,821: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2024-11-26 07:03:39,817: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2024-11-26 05:13:15,830: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2024-11-26 05:13:15,831: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2024-11-26 07:03:39,828: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2024-11-26 07:03:39,829: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2024-11-26 05:13:15,833: INFO/MainProcess] mingle: searching for neighbors
-[2024-11-26 05:13:16,844: INFO/MainProcess] mingle: all alone
-[2024-11-26 05:13:16,860: INFO/MainProcess] celery@vm-hex-tensai ready.
-[2024-11-26 05:13:31,757: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[a97a38e8-c16b-482c-834e-af8382c6c4c5] received
-[2024-11-26 05:13:31,759: WARNING/ForkPoolWorker-6] open_ai_celery_task
-[2024-11-26 05:13:31,759: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[ecf2ff61-c991-478c-b299-aaaf1233ea11] received
-[2024-11-26 05:13:31,762: WARNING/ForkPoolWorker-7] open_ai_celery_task
-[2024-11-26 05:13:34,698: INFO/ForkPoolWorker-6] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:13:34,705: WARNING/ForkPoolWorker-6] {
-  1: {
-    question: "What is the correct syntax to output the string 'Hello, World!' in Python?",
-    options: [
-      "echo 'Hello, World!'",
-      "print('Hello, World!')",
-      "printf('Hello, World!')",
-      "cout << 'Hello, World!'"
-    ],
-    answer: "print('Hello, World!')"
-  },
-  2: {
-    question: "Which of the following is a correct variable declaration in Python?",
-    options: [
-      "int x = 10",
-      "x = 10",
-      "declare x = 10",
-      "var x = 10"
-    ],
-    answer: "x = 10"
-  }
-}
-[2024-11-26 05:13:34,708: INFO/ForkPoolWorker-6] Task modules.tasks.celery_tasks.openai_celery_task[a97a38e8-c16b-482c-834e-af8382c6c4c5] succeeded in 2.9494871870265342s: '{
-  1: {
-    question: "What is the correct syntax to output the string \'Hello, World!\' in Python?",
-    options: [
-      "echo \'Hello, World!\'",
-      "print(\'Hello, World!\')",
-      "printf(\'Hello, World!\')",
-      "cout << \'Hello, World!\'"
-    ],
-    answer: "print(\'Hello, World!\')"
-  },
-  2: {
-    question: "Which of the following is a correct variable declaration in Python?",
-    options: [
-      "int x = 10",
-      "x = 10",
-      "declare x = 10",
-      "var x = 10"
-    ],
-    answer: "x = 10"
-  }
-}'
-[2024-11-26 05:13:36,603: INFO/ForkPoolWorker-7] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:13:36,611: WARNING/ForkPoolWorker-7] {
-	"question": "Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.",
-	"testcases": {
-		"testcase_1": {
-			"input": [1, 2, 3, 4, 5, 6],
-			"output": 12
-		},
-		"testcase_2": {
-			"input": [10, 21, 32, 43, 54],
-			"output": 96
-		},
-		"testcase_3": {
-			"input": [7, 13, 19, 25],
-			"output": 0
-		}
-	},
-	"solution": "def sum_of_even_numbers(lst):\n    return sum(num for num in lst if num % 2 == 0)\n\n# Test cases\nprint(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12\nprint(sum_of_even_numbers([10, 21, 32, 43, 54]))  # Output: 96\nprint(sum_of_even_numbers([7, 13, 19, 25]))  # Output: 0"
-}
-[2024-11-26 05:13:36,614: INFO/ForkPoolWorker-7] Task modules.tasks.celery_tasks.openai_celery_task[ecf2ff61-c991-478c-b299-aaaf1233ea11] succeeded in 4.852880514052231s: '{
-	"question": "Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.",
-	"testcases": {
-		"testcase_1": {
-			"input": [1, 2, 3, 4, 5, 6],
-			"output": 12
-		},
-		"testcase_2": {
-			"input": [10, 21, 32, 43, 54],
-			"output": 96
-		},
-		"testcase_3": {
-			"input": [7, 13, 19, 25],
-			"output": 0
-		}
-	},
-	"solution": "def sum_of_even_numbers(lst):\n    return sum(num for num in lst if num % 2 == 0)\n\n# Test cases\nprint(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12\nprint(sum_of_even_numbers([10, 21, 32, 43, 54]))  # Output: 96\nprint(sum_of_even_numbers([7, 13, 19, 25]))  # Output: 0"
-}'
-[2024-11-26 05:15:03,206: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[1abffe6f-5ae1-4544-8379-c8191eb6f93b] received
-[2024-11-26 05:15:03,207: WARNING/ForkPoolWorker-6] open_ai_celery_task
-[2024-11-26 05:15:03,208: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[a0d6d6a5-54cd-4c53-a53d-d51602e9e6e9] received
-[2024-11-26 05:15:03,209: WARNING/ForkPoolWorker-7] open_ai_celery_task
-[2024-11-26 05:15:03,210: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[3a58ad57-bc25-46ff-90bf-3dd64d2bf75b] received
-[2024-11-26 05:15:03,212: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[0e145269-6c91-4411-9160-1a7229450832] received
-[2024-11-26 05:15:03,212: WARNING/ForkPoolWorker-1] open_ai_celery_task
-[2024-11-26 05:15:03,215: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[949cddfc-8088-4e67-949a-34e3d6679519] received
-[2024-11-26 05:15:03,216: WARNING/ForkPoolWorker-2] open_ai_celery_task
-[2024-11-26 05:15:03,216: WARNING/ForkPoolWorker-8] open_ai_celery_task
-[2024-11-26 05:15:03,218: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[182f6c6b-b6df-4cf6-8a19-23d2330e8018] received
-[2024-11-26 05:15:03,219: WARNING/ForkPoolWorker-9] open_ai_celery_task
-[2024-11-26 05:15:06,709: INFO/ForkPoolWorker-1] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:06,721: INFO/ForkPoolWorker-6] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:06,722: WARNING/ForkPoolWorker-6] {
-  1: {
-    question: "What is the correct syntax to output the string 'Hello, World!' in Python?",
-    options: [
-      "echo 'Hello, World!'",
-      "print('Hello, World!')",
-      "printf('Hello, World!')",
-      "cout << 'Hello, World!'"
-    ],
-    answer: "print('Hello, World!')"
-  },
-  2: {
-    question: "Which of the following is a correct variable assignment in Python?",
-    options: [
-      "x = 10",
-      "int x = 10",
-      "10 = x",
-      "x := 10"
-    ],
-    answer: "x = 10"
-  }
-}
-[2024-11-26 05:15:06,723: INFO/ForkPoolWorker-6] Task modules.tasks.celery_tasks.openai_celery_task[1abffe6f-5ae1-4544-8379-c8191eb6f93b] succeeded in 3.515583770989906s: '{
-  1: {
-    question: "What is the correct syntax to output the string \'Hello, World!\' in Python?",
-    options: [
-      "echo \'Hello, World!\'",
-      "print(\'Hello, World!\')",
-      "printf(\'Hello, World!\')",
-      "cout << \'Hello, World!\'"
-    ],
-    answer: "print(\'Hello, World!\')"
-  },
-  2: {
-    question: "Which of the following is a correct variable assignment in Python?",
-    options: [
-      "x = 10",
-      "int x = 10",
-      "10 = x",
-      "x := 10"
-    ],
-    answer: "x = 10"
-  }
-}'
-[2024-11-26 05:15:06,724: WARNING/ForkPoolWorker-1] {
-  1: {
-    question: "What is the correct syntax to output the string 'Hello, World!' in Python?",
-    options: [
-      "echo 'Hello, World!'",
-      "print('Hello, World!')",
-      "printf('Hello, World!')",
-      "cout << 'Hello, World!'"
-    ],
-    answer: "print('Hello, World!')"
-  },
-  2: {
-    question: "Which of the following is a correct variable declaration in Python?",
-    options: [
-      "int x = 10",
-      "x = 10",
-      "declare x = 10",
-      "var x = 10"
-    ],
-    answer: "x = 10"
-  }
-}
-[2024-11-26 05:15:06,727: INFO/ForkPoolWorker-1] Task modules.tasks.celery_tasks.openai_celery_task[3a58ad57-bc25-46ff-90bf-3dd64d2bf75b] succeeded in 3.5151921390206553s: '{
-  1: {
-    question: "What is the correct syntax to output the string \'Hello, World!\' in Python?",
-    options: [
-      "echo \'Hello, World!\'",
-      "print(\'Hello, World!\')",
-      "printf(\'Hello, World!\')",
-      "cout << \'Hello, World!\'"
-    ],
-    answer: "print(\'Hello, World!\')"
-  },
-  2: {
-    question: "Which of the following is a correct variable declaration in Python?",
-    options: [
-      "int x = 10",
-      "x = 10",
-      "declare x = 10",
-      "var x = 10"
-    ],
-    answer: "x = 10"
-  }
-}'
-[2024-11-26 05:15:07,738: INFO/ForkPoolWorker-2] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:07,745: WARNING/ForkPoolWorker-2] {
-  1: {
-    question: "Which of the following is the correct syntax to declare a variable in C?",
-    options: [
-      "int number;",
-      "int number()",
-      "int number[]",
-      "int number{}"
-    ],
-    answer: "int number;"
-  },
-  2: {
-    question: "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\");\n    return 0;\n}",
-    options: [
-      "Hello, World!",
-      "Hello World",
-      "Hello, World",
-      "Hello World!"
-    ],
-    answer: "Hello, World!"
-  }
-}
-[2024-11-26 05:15:07,748: INFO/ForkPoolWorker-2] Task modules.tasks.celery_tasks.openai_celery_task[949cddfc-8088-4e67-949a-34e3d6679519] succeeded in 4.532280437997542s: '{
-  1: {
-    question: "Which of the following is the correct syntax to declare a variable in C?",
-    options: [
-      "int number;",
-      "int number()",
-      "int number[]",
-      "int number{}"
-    ],
-    answer: "int number;"
-  },
-  2: {
-    question: "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\");\n    return 0;\n}",
-    options: [
-      "Hello, World!",
-      "Hello World",
-      "Hello, World",
-      "Hello World!"
-    ],
-    answer: "Hello, World!"
-  }
-}'
-[2024-11-26 05:15:07,979: INFO/ForkPoolWorker-7] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:07,980: WARNING/ForkPoolWorker-7] {
-	"question": "Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.",
-	"testcases": {
-		"testcase_1": {
-			"input": "[1, 2, 3, 4, 5, 6]",
-			"output": "12"
-		},
-		"testcase_2": {
-			"input": "[10, 15, 20, 25, 30]",
-			"output": "60"
-		},
-		"testcase_3": {
-			"input": "[7, 13, 19, 23]",
-			"output": "0"
-		}
-	},
-	"solution": "def sum_of_even_numbers(lst):\n    return sum(num for num in lst if num % 2 == 0)\n\n# Test cases\nprint(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12\nprint(sum_of_even_numbers([10, 15, 20, 25, 30]))  # Output: 60\nprint(sum_of_even_numbers([7, 13, 19, 23]))  # Output: 0"
-}
-[2024-11-26 05:15:07,981: INFO/ForkPoolWorker-7] Task modules.tasks.celery_tasks.openai_celery_task[a0d6d6a5-54cd-4c53-a53d-d51602e9e6e9] succeeded in 4.7723914699745364s: '{
-	"question": "Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.",
-	"testcases": {
-		"testcase_1": {
-			"input": "[1, 2, 3, 4, 5, 6]",
-			"output": "12"
-		},
-		"testcase_2": {
-			"input": "[10, 15, 20, 25, 30]",
-			"output": "60"
-		},
-		"testcase_3": {
-			"input": "[7, 13, 19, 23]",
-			"output": "0"
-		}
-	},
-	"solution": "def sum_of_even_numbers(lst):\n    return sum(num for num in lst if num % 2 == 0)\n\n# Test cases\nprint(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12\nprint(sum_of_even_numbers([10, 15, 20, 25, 30]))  # Output: 60\nprint(sum_of_even_numbers([7, 13, 19, 23]))  # Output: 0"
-}'
-[2024-11-26 05:15:09,965: INFO/ForkPoolWorker-8] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:09,973: WARNING/ForkPoolWorker-8] {
-	"question": "Write a Python function that takes a list of integers and returns a new list containing only the even numbers from the original list.",
-	"testcases": {
-		"testcase_1": {
-			"input": [1, 2, 3, 4, 5, 6],
-			"output": [2, 4, 6]
-		},
-		"testcase_2": {
-			"input": [10, 15, 20, 25, 30],
-			"output": [10, 20, 30]
-		},
-		"testcase_3": {
-			"input": [7, 13, 19],
-			"output": []
-		}
-	},
-	"solution": "def filter_even_numbers(numbers):\n    return [num for num in numbers if num % 2 == 0]\n\n# Test cases\nprint(filter_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: [2, 4, 6]\nprint(filter_even_numbers([10, 15, 20, 25, 30]))  # Output: [10, 20, 30]\nprint(filter_even_numbers([7, 13, 19]))  # Output: []"
-}
-[2024-11-26 05:15:09,976: INFO/ForkPoolWorker-8] Task modules.tasks.celery_tasks.openai_celery_task[0e145269-6c91-4411-9160-1a7229450832] succeeded in 6.7602704600431025s: '{
-	"question": "Write a Python function that takes a list of integers and returns a new list containing only the even numbers from the original list.",
-	"testcases": {
-		"testcase_1": {
-			"input": [1, 2, 3, 4, 5, 6],
-			"output": [2, 4, 6]
-		},
-		"testcase_2": {
-			"input": [10, 15, 20, 25, 30],
-			"output": [10, 20, 30]
-		},
-		"testcase_3": {
-			"input": [7, 13, 19],
-			"output": []
-		}
-	},
-	"solution": "def filter_even_numbers(numbers):\n    return [num for num in numbers if num % 2 == 0]\n\n# Test cases\nprint(filter_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: [2, 4, 6]\nprint(filter_even_numbers([10, 15, 20, 25, 30]))  # Output: [10, 20, 30]\nprint(filter_even_numbers([7, 13, 19]))  # Output: []"
-}'
-[2024-11-26 05:15:10,008: INFO/ForkPoolWorker-9] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 05:15:10,016: WARNING/ForkPoolWorker-9] {
-	"question": "Write a C program to find the largest of three numbers entered by the user.",
-	"testcases": {
-		"testcase_1": {
-			"input": "5 10 3",
-			"output": "The largest number is 10"
-		},
-		"testcase_2": {
-			"input": "7 7 7",
-			"output": "The largest number is 7"
-		},
-		"testcase_3": {
-			"input": "15 9 20",
-			"output": "The largest number is 20"
-		}
-	},
-	"solution": "#include <stdio.h>\n\nint main() {\n    int num1, num2, num3;\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &num1, &num2, &num3);\n\n    if (num1 >= num2 && num1 >= num3)\n        printf(\"The largest number is %d\\n\", num1);\n    else if (num2 >= num1 && num2 >= num3)\n        printf(\"The largest number is %d\\n\", num2);\n    else\n        printf(\"The largest number is %d\\n\", num3);\n\n    return 0;\n}"
-}
-[2024-11-26 05:15:10,021: INFO/ForkPoolWorker-9] Task modules.tasks.celery_tasks.openai_celery_task[182f6c6b-b6df-4cf6-8a19-23d2330e8018] succeeded in 6.801755306019913s: '{
-	"question": "Write a C program to find the largest of three numbers entered by the user.",
-	"testcases": {
-		"testcase_1": {
-			"input": "5 10 3",
-			"output": "The largest number is 10"
-		},
-		"testcase_2": {
-			"input": "7 7 7",
-			"output": "The largest number is 7"
-		},
-		"testcase_3": {
-			"input": "15 9 20",
-			"output": "The largest number is 20"
-		}
-	},
-	"solution": "#include <stdio.h>\n\nint main() {\n    int num1, num2, num3;\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &num1, &num2, &num3);\n\n    if (num1 >= num2 && num1 >= num3)\n        printf(\"The largest number is %d\\n\", num1);\n    else if (num2 >= num1 && num2 >= num3)\n        printf(\"The largest number is %d\\n\", num2);\n    else\n        printf(\"The largest number is %d\\n\", num3);\n\n    return 0;\n}"
-}'
+[2024-11-26 07:03:39,834: INFO/MainProcess] mingle: searching for neighbors
+[2024-11-26 07:03:40,845: INFO/MainProcess] mingle: all alone
+[2024-11-26 07:03:40,857: INFO/MainProcess] celery@vm-hex-tensai ready.
+[2024-11-26 07:04:15,857: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[28473be9-8e19-42a6-b64d-9dcc254712c8] received
+[2024-11-26 07:04:15,859: WARNING/ForkPoolWorker-6] open_ai_celery_task
+[2024-11-26 07:04:15,859: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[f17a77ed-63ce-4256-bc8f-f8750104e4ee] received
+[2024-11-26 07:04:15,861: WARNING/ForkPoolWorker-7] open_ai_celery_task
+[2024-11-26 07:04:18,099: INFO/ForkPoolWorker-6] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-11-26 07:04:18,113: INFO/ForkPoolWorker-6] Task modules.tasks.celery_tasks.openai_celery_task[28473be9-8e19-42a6-b64d-9dcc254712c8] succeeded in 2.254362827981822s: {'1': {'question': 'What is the correct syntax to output \'Hello, World!\' in Python?', 'options': ['echo \'Hello, World!\'', 'print(\'Hello, World!\')', 'printf(\'Hello, World!\')', 'cout << \'Hello, World!\''], 'answer': 'print(\'Hello, World!\')'}, '2': {'question': 'Which of the following is a correct variable declaration in Python?', 'options': ['int x = 10', 'x = 10', 'declare x = 10', 'var x = 10'], 'answer': 'x = 10'}}
+[2024-11-26 07:04:30,650: INFO/ForkPoolWorker-7] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-11-26 07:04:30,662: INFO/ForkPoolWorker-7] Task modules.tasks.celery_tasks.openai_celery_task[f17a77ed-63ce-4256-bc8f-f8750104e4ee] succeeded in 14.800885952019598s: {'questions': [{'question': 'Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.', 'testcases': {...}, 'solution': 'def sum_of_even_numbers(lst):
+    return sum(num for num in lst if num % 2 == 0)
+
+# Test cases
+print(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12
+print(sum_of_even_numbers([10, 15, 20, 25, 30]))  # Output: 60
+print(sum_of_even_numbers([7, 8, 9, 10, 11]))  # Output: 18'}, {'question': 'Write a Python function that takes a string and returns the number of vowels in the string.', 'testcases': {...}, 'solution': 'def count_vowels(s):
+    vowels = \'aeiouAEIOU\'
+    return sum(1 for char in s if char in vowels)
+
+# Test cases
+print(count_vowels(\'hello world\'))  # Output: 3
+print(count_vowels(\'python programming\'))  # Output: 4
+print(count_vowels(\'aeiou\'))  # Output: 5'}]}
