@@ -2,6 +2,11 @@ ai-assessment-venv
 Backend/.env
 Backend/logs
 *.log
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
 Backend/__pycache__/
 Backend/modules/__pycache__/
 Backend/modules/Utils/__pycache__
