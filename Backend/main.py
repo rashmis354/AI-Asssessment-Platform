@@ -4,8 +4,8 @@ from config.config import LOGS_PATH,code_review_prompt,code_review_user_prompt
 # from modules.Utils.generate_log_file import logger
 import getpass
 import datetime
-from modules.OpenAI.azure_open_ai import make_request_json
-from modules.OpenAI.open_ai_helper_functions import create_openai_obj
+from modules.openai.azure_open_ai import make_request_json
+from modules.openai.open_ai_helper_functions import create_openai_obj
 # Create Log Folder
 current_directory = os.getcwd()
 try:

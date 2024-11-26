@@ -2,6 +2,8 @@ ai-assessment-venv
 Backend/.env
 Backend/logs
 *.log
+Backend/__pycache__/
+Backend/modules/__pycache__/
 Backend/modules/Utils/__pycache__
 Backend/config/__pycache__
 Backend/modules/OpenAI/__pycache__

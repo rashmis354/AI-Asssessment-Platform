@@ -32,6 +32,9 @@ backupCount = config_details['backupCount']
 file_rotation = config_details['file_rotation']
 file_rotation_interval = config_details['file_rotation_interval']
 
+STATUS_FAILURE = config_details['STATUS_FAILURE']
+STATUS_SUCCESS = config_details['STATUS_SUCCESS']
+
 code_review_prompt = config_details['code_review_prompt']
 code_review_user_prompt = config_details['code_review_user_prompt']
 
