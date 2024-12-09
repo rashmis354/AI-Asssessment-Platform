@@ -43,6 +43,7 @@ data_models:
    assessment_data_model : {"evaluator_id": "", "assessment_id": "", "assessment_type": "","assessment_title": "", "created_time": "", "updated_time": "", "questions": []}
    questions_data_model : {"technology" : "","questions": {"MCQ": 0,"Coding": 0},"complexity" : ""}
 
+
 azure_endpoint : !Parse ["os.environ.get('azure_endpoint')"]
 api_key : !Parse ["os.environ.get('api_key')"]
 api_version : !Parse ["os.environ.get('api_version')"]

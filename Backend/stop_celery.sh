@@ -1,7 +1,7 @@
 #!/bin/bash
  
 # Use pgrep to find the PID of the Celery process
-pid=$(pgrep -f 'celery -A modules.celery_config worker -l INFO --concurrency=10')
+pid=$(pgrep -f 'celery -A modules.celery_config worker -l INFO --concurrency=8')
  
 # Check if the PID was found
 if [ -z "$pid" ]; then
