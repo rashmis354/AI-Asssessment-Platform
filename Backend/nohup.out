@@ -1,56 +1,70 @@
- 
- -------------- celery@vm-hex-tensai v5.4.0 (opalescent)
---- ***** ----- 
--- ******* ---- Linux-6.5.0-1024-azure-x86_64-with-glibc2.35 2024-11-26 07:03:39
-- *** --- * --- 
-- ** ---------- [config]
-- ** ---------- .> app:         Tasks:0x742d60afe1d0
-- ** ---------- .> transport:   redis://localhost:6379/0
-- ** ---------- .> results:     redis://localhost:6379/0
-- *** --- * --- .> concurrency: 10 (prefork)
--- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
---- ***** ----- 
- -------------- [queues]
-                .> celery           exchange=celery(direct) key=celery
-                
+[2024-12-04 06:08:03,045: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[4ba0cc50-3c9b-4c60-82d7-a1c95d8e812b] received
+[2024-12-04 06:08:03,046: WARNING/ForkPoolWorker-6] open_ai_celery_task
+[2024-12-04 06:08:03,047: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[fc592345-0e9d-48d5-a0e3-7c378a30f9cd] received
+[2024-12-04 06:08:03,049: WARNING/ForkPoolWorker-7] open_ai_celery_task
+[2024-12-04 06:08:03,049: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[4b46e151-7ea4-40a0-bce8-3be95cbec1fb] received
+[2024-12-04 06:08:03,051: WARNING/ForkPoolWorker-1] open_ai_celery_task
+[2024-12-04 06:08:03,052: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[4b820ce4-2c6a-4ece-9896-4dce3e7d1c12] received
+[2024-12-04 06:08:03,054: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[e6417b23-35a3-4219-99c4-3de0badd451b] received
+[2024-12-04 06:08:03,055: WARNING/ForkPoolWorker-8] open_ai_celery_task
+[2024-12-04 06:08:03,055: WARNING/ForkPoolWorker-2] open_ai_celery_task
+[2024-12-04 06:08:03,059: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[4a06b3e2-694e-4e67-9f1d-906a65671d42] received
+[2024-12-04 06:08:03,060: WARNING/ForkPoolWorker-9] open_ai_celery_task
+[2024-12-04 06:08:04,982: INFO/ForkPoolWorker-2] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:04,983: WARNING/ForkPoolWorker-2] {'domain_name': 'ReactJS', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': 'What is the primary purpose of ReactJS?', 'options': ['To manage databases', 'To build user interfaces', 'To handle server-side logic', 'To create mobile applications'], 'answer': 'To build user interfaces'}, 'question_2': {'question': 'Which of the following is used to create a React component?', 'options': ['React.createComponent()', 'React.component()', 'React.createElement()', 'React.newComponent()'], 'answer': 'React.createElement()'}}}
+[2024-12-04 06:08:04,985: INFO/ForkPoolWorker-2] Task modules.tasks.celery_tasks.openai_celery_task[e6417b23-35a3-4219-99c4-3de0badd451b] succeeded in 1.9299808179493994s: {'domain_name': 'ReactJS', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': 'What is the primary purpose of ReactJS?', 'options': [...], 'answer': 'To build user interfaces'}, 'question_2': {'question': 'Which of the following is used to create a React component?', 'options': [...], 'answer': 'React.createElement()'}}}
+[2024-12-04 06:08:07,664: INFO/ForkPoolWorker-9] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:07,665: WARNING/ForkPoolWorker-9] {'domain_name': 'ReactJS', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': "Create a simple React component that displays 'Hello, World!' on the screen.", 'testcases': {'testcase_1': {'input': 'Render the component', 'output': '<div>Hello, World!</div>'}, 'testcase_2': {'input': "Check the component's text content", 'output': 'Hello, World!'}, 'testcase_3': {'input': "Check the component's HTML structure", 'output': '<div>Hello, World!</div>'}}, 'solution': "import React from 'react';\n\nconst HelloWorld = () => {\n  return (\n    <div>Hello, World!</div>\n  );\n};\n\nexport default HelloWorld;"}, 'question_2': {'question_text': "Create a React component that takes a 'name' prop and displays 'Hello, {name}!' on the screen.", 'testcases': {'testcase_1': {'input': "Render the component with name='Alice'", 'output': '<div>Hello, Alice!</div>'}, 'testcase_2': {'input': "Render the component with name='Bob'", 'output': '<div>Hello, Bob!</div>'}, 'testcase_3': {'input': "Render the component with name='Charlie'", 'output': '<div>Hello, Charlie!</div>'}}, 'solution': "import React from 'react';\n\nconst Greeting = ({ name }) => {\n  return (\n    <div>Hello, {name}!</div>\n  );\n};\n\nexport default Greeting;"}}}
+[2024-12-04 06:08:07,667: INFO/ForkPoolWorker-9] Task modules.tasks.celery_tasks.openai_celery_task[4a06b3e2-694e-4e67-9f1d-906a65671d42] succeeded in 4.606849271105602s: {'domain_name': 'ReactJS', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': 'Create a simple React component that displays \'Hello, World!\' on the screen.', 'testcases': {...}, 'solution': 'import React from \'react\';
 
-[tasks]
-  . modules.tasks.celery_tasks.openai_celery_task
+const HelloWorld = () => {
+  return (
+    <div>Hello, World!</div>
+  );
+};
 
-[2024-11-26 07:03:39,817: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
-whether broker connection retries are made during startup in Celery 6.0 and above.
-If you wish to retain the existing behavior for retrying connections on startup,
-you should set broker_connection_retry_on_startup to True.
-  warnings.warn(
+export default HelloWorld;'}, 'question_2': {'question_text': 'Create a React component that takes a \'name\' prop and displays \'Hello, {name}!\' on the screen.', 'testcases': {...}, 'solution': 'import React from \'react\';
 
-[2024-11-26 07:03:39,828: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2024-11-26 07:03:39,829: WARNING/MainProcess] /app/legalbot/legalbot_venv/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
-whether broker connection retries are made during startup in Celery 6.0 and above.
-If you wish to retain the existing behavior for retrying connections on startup,
-you should set broker_connection_retry_on_startup to True.
-  warnings.warn(
+const Greeting = ({ name }) => {
+  return (
+    <div>Hello, {name}!</div>
+  );
+};
 
-[2024-11-26 07:03:39,834: INFO/MainProcess] mingle: searching for neighbors
-[2024-11-26 07:03:40,845: INFO/MainProcess] mingle: all alone
-[2024-11-26 07:03:40,857: INFO/MainProcess] celery@vm-hex-tensai ready.
-[2024-11-26 07:04:15,857: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[28473be9-8e19-42a6-b64d-9dcc254712c8] received
-[2024-11-26 07:04:15,859: WARNING/ForkPoolWorker-6] open_ai_celery_task
-[2024-11-26 07:04:15,859: INFO/MainProcess] Task modules.tasks.celery_tasks.openai_celery_task[f17a77ed-63ce-4256-bc8f-f8750104e4ee] received
-[2024-11-26 07:04:15,861: WARNING/ForkPoolWorker-7] open_ai_celery_task
-[2024-11-26 07:04:18,099: INFO/ForkPoolWorker-6] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 07:04:18,113: INFO/ForkPoolWorker-6] Task modules.tasks.celery_tasks.openai_celery_task[28473be9-8e19-42a6-b64d-9dcc254712c8] succeeded in 2.254362827981822s: {'1': {'question': 'What is the correct syntax to output \'Hello, World!\' in Python?', 'options': ['echo \'Hello, World!\'', 'print(\'Hello, World!\')', 'printf(\'Hello, World!\')', 'cout << \'Hello, World!\''], 'answer': 'print(\'Hello, World!\')'}, '2': {'question': 'Which of the following is a correct variable declaration in Python?', 'options': ['int x = 10', 'x = 10', 'declare x = 10', 'var x = 10'], 'answer': 'x = 10'}}
-[2024-11-26 07:04:30,650: INFO/ForkPoolWorker-7] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
-[2024-11-26 07:04:30,662: INFO/ForkPoolWorker-7] Task modules.tasks.celery_tasks.openai_celery_task[f17a77ed-63ce-4256-bc8f-f8750104e4ee] succeeded in 14.800885952019598s: {'questions': [{'question': 'Write a Python function that takes a list of integers and returns the sum of all the even numbers in the list.', 'testcases': {...}, 'solution': 'def sum_of_even_numbers(lst):
-    return sum(num for num in lst if num % 2 == 0)
-
-# Test cases
-print(sum_of_even_numbers([1, 2, 3, 4, 5, 6]))  # Output: 12
-print(sum_of_even_numbers([10, 15, 20, 25, 30]))  # Output: 60
-print(sum_of_even_numbers([7, 8, 9, 10, 11]))  # Output: 18'}, {'question': 'Write a Python function that takes a string and returns the number of vowels in the string.', 'testcases': {...}, 'solution': 'def count_vowels(s):
-    vowels = \'aeiouAEIOU\'
-    return sum(1 for char in s if char in vowels)
+export default Greeting;'}}}
+[2024-12-04 06:08:07,829: INFO/ForkPoolWorker-6] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:07,831: WARNING/ForkPoolWorker-6] {'domain_name': 'Python', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': "Which of the following is the correct syntax to output 'Hello, World!' in Python?", 'options': ["print('Hello, World!')", "echo 'Hello, World!'", "printf('Hello, World!')", "cout << 'Hello, World!'"], 'answer': "print('Hello, World!')"}, 'question_2': {'question': 'Which of the following data types is used to store a sequence of characters in Python?', 'options': ['int', 'float', 'str', 'bool'], 'answer': 'str'}}}
+[2024-12-04 06:08:07,832: INFO/ForkPoolWorker-6] Task modules.tasks.celery_tasks.openai_celery_task[4ba0cc50-3c9b-4c60-82d7-a1c95d8e812b] succeeded in 4.786088760942221s: {'domain_name': 'Python', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': 'Which of the following is the correct syntax to output \'Hello, World!\' in Python?', 'options': [...], 'answer': 'print(\'Hello, World!\')'}, 'question_2': {'question': 'Which of the following data types is used to store a sequence of characters in Python?', 'options': [...], 'answer': 'str'}}}
+[2024-12-04 06:08:10,176: INFO/ForkPoolWorker-1] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:10,177: WARNING/ForkPoolWorker-1] {'domain_name': 'Python', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': "Which of the following is the correct syntax to output 'Hello, World!' in Python?", 'options': ["print('Hello, World!')", "echo 'Hello, World!'", "printf('Hello, World!')", "cout << 'Hello, World!'"], 'answer': "print('Hello, World!')"}, 'question_2': {'question': 'Which of the following data types is used to store a sequence of characters in Python?', 'options': ['int', 'float', 'str', 'list'], 'answer': 'str'}}}
+[2024-12-04 06:08:10,178: INFO/ForkPoolWorker-1] Task modules.tasks.celery_tasks.openai_celery_task[4b46e151-7ea4-40a0-bce8-3be95cbec1fb] succeeded in 7.127770523075014s: {'domain_name': 'Python', 'question_type': 'MCQ', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question': 'Which of the following is the correct syntax to output \'Hello, World!\' in Python?', 'options': [...], 'answer': 'print(\'Hello, World!\')'}, 'question_2': {'question': 'Which of the following data types is used to store a sequence of characters in Python?', 'options': [...], 'answer': 'str'}}}
+[2024-12-04 06:08:15,931: INFO/ForkPoolWorker-8] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:15,932: WARNING/ForkPoolWorker-8] {'domain_name': 'Python', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': 'Write a Python function that takes a list of integers and returns the sum of all the integers in the list.', 'testcases': {'testcase_1': {'input': '[1, 2, 3, 4, 5]', 'output': '15'}, 'testcase_2': {'input': '[-1, -2, -3, -4, -5]', 'output': '-15'}, 'testcase_3': {'input': '[0, 0, 0, 0, 0]', 'output': '0'}}, 'solution': 'def sum_of_list(lst):\n    return sum(lst)\n\n# Test cases\nprint(sum_of_list([1, 2, 3, 4, 5]))  # Output: 15\nprint(sum_of_list([-1, -2, -3, -4, -5]))  # Output: -15\nprint(sum_of_list([0, 0, 0, 0, 0]))  # Output: 0'}, 'question_2': {'question_text': 'Write a Python function that takes a string and returns the string reversed.', 'testcases': {'testcase_1': {'input': '"hello"', 'output': '"olleh"'}, 'testcase_2': {'input': '"Python"', 'output': '"nohtyP"'}, 'testcase_3': {'input': '""', 'output': '""'}}, 'solution': 'def reverse_string(s):\n    return s[::-1]\n\n# Test cases\nprint(reverse_string("hello"))  # Output: "olleh"\nprint(reverse_string("Python"))  # Output: "nohtyP"\nprint(reverse_string(""))  # Output: ""'}}}
+[2024-12-04 06:08:15,934: INFO/ForkPoolWorker-8] Task modules.tasks.celery_tasks.openai_celery_task[4b820ce4-2c6a-4ece-9896-4dce3e7d1c12] succeeded in 12.879031018121168s: {'domain_name': 'Python', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': 'Write a Python function that takes a list of integers and returns the sum of all the integers in the list.', 'testcases': {...}, 'solution': 'def sum_of_list(lst):
+    return sum(lst)
 
 # Test cases
-print(count_vowels(\'hello world\'))  # Output: 3
-print(count_vowels(\'python programming\'))  # Output: 4
-print(count_vowels(\'aeiou\'))  # Output: 5'}]}
+print(sum_of_list([1, 2, 3, 4, 5]))  # Output: 15
+print(sum_of_list([-1, -2, -3, -4, -5]))  # Output: -15
+print(sum_of_list([0, 0, 0, 0, 0]))  # Output: 0'}, 'question_2': {'question_text': 'Write a Python function that takes a string and returns the string reversed.', 'testcases': {...}, 'solution': 'def reverse_string(s):
+    return s[::-1]
+
+# Test cases
+print(reverse_string("hello"))  # Output: "olleh"
+print(reverse_string("Python"))  # Output: "nohtyP"
+print(reverse_string(""))  # Output: ""'}}}
+[2024-12-04 06:08:16,899: INFO/ForkPoolWorker-7] HTTP Request: POST https://oa-tmk-oth-dev1.openai.azure.com//openai/deployments/oam-tmk-oth-dev1-gpt4o/chat/completions?api-version=2024-04-01-preview "HTTP/1.1 200 OK"
+[2024-12-04 06:08:16,900: WARNING/ForkPoolWorker-7] {'domain_name': 'Python', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': 'Write a Python function that takes a list of integers and returns the sum of all the integers in the list.', 'testcases': {'testcase_1': {'input': '[1, 2, 3, 4, 5]', 'output': '15'}, 'testcase_2': {'input': '[-1, -2, -3, -4, -5]', 'output': '-15'}, 'testcase_3': {'input': '[0, 0, 0, 0, 0]', 'output': '0'}}, 'solution': 'def sum_of_list(lst):\n    return sum(lst)\n\n# Test cases\nprint(sum_of_list([1, 2, 3, 4, 5]))  # Output: 15\nprint(sum_of_list([-1, -2, -3, -4, -5]))  # Output: -15\nprint(sum_of_list([0, 0, 0, 0, 0]))  # Output: 0'}, 'question_2': {'question_text': 'Write a Python function that takes a string and returns the string reversed.', 'testcases': {'testcase_1': {'input': '"hello"', 'output': '"olleh"'}, 'testcase_2': {'input': '"Python"', 'output': '"nohtyP"'}, 'testcase_3': {'input': '""', 'output': '""'}}, 'solution': 'def reverse_string(s):\n    return s[::-1]\n\n# Test cases\nprint(reverse_string("hello"))  # Output: "olleh"\nprint(reverse_string("Python"))  # Output: "nohtyP"\nprint(reverse_string(""))  # Output: ""'}}}
+[2024-12-04 06:08:16,901: INFO/ForkPoolWorker-7] Task modules.tasks.celery_tasks.openai_celery_task[fc592345-0e9d-48d5-a0e3-7c378a30f9cd] succeeded in 13.85237970086746s: {'domain_name': 'Python', 'question_type': 'Coding', 'no_of_questions': 2, 'q_and_a': {'question_1': {'question_text': 'Write a Python function that takes a list of integers and returns the sum of all the integers in the list.', 'testcases': {...}, 'solution': 'def sum_of_list(lst):
+    return sum(lst)
+
+# Test cases
+print(sum_of_list([1, 2, 3, 4, 5]))  # Output: 15
+print(sum_of_list([-1, -2, -3, -4, -5]))  # Output: -15
+print(sum_of_list([0, 0, 0, 0, 0]))  # Output: 0'}, 'question_2': {'question_text': 'Write a Python function that takes a string and returns the string reversed.', 'testcases': {...}, 'solution': 'def reverse_string(s):
+    return s[::-1]
+
+# Test cases
+print(reverse_string("hello"))  # Output: "olleh"
+print(reverse_string("Python"))  # Output: "nohtyP"
+print(reverse_string(""))  # Output: ""'}}}

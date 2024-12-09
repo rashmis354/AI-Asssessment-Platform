@@ -3,6 +3,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse,HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
 from config.config import LOGS_PATH
 # Create Log Folder
 current_directory = os.getcwd()
@@ -14,7 +15,6 @@ try:
 except Exception as e:
     print("Log Folder Creation Failed-" + str(e))
 
-
 # import routers.engine as engine
 import Personas.Evaluator.routers.create_assessment as evaluator_create_assesment
 
@@ -24,6 +24,15 @@ origins = ["*"]
 
 app = FastAPI(title="AI-Assessment-Platform")
 
+# app.add_middleware(SessionMiddleware, secret_key=secret_key)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["upload_id","NDA","X-Session-Id"],
+)
 # app.include_router(engine.router)
 app.include_router(evaluator_create_assesment.router)
 logger.info("----------------------Service Restarted----------------")

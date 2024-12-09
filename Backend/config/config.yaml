@@ -39,9 +39,20 @@ code_review_user_prompt : |
    Answer Submission:
    Code Provided: {code_solution}
 
+data_models:
+   assessment_data_model : {"evaluator_id": "", "assessment_id": "", "assessment_type": "","assessment_title": "", "created_time": "", "updated_time": "", "questions": []}
+   questions_data_model : {"technology" : "","questions": {"MCQ": 0,"Coding": 0},"complexity" : ""}
+
 azure_endpoint : !Parse ["os.environ.get('azure_endpoint')"]
 api_key : !Parse ["os.environ.get('api_key')"]
 api_version : !Parse ["os.environ.get('api_version')"]
 model_deployment_name : !Parse ["os.environ.get('model_deployment_name')"]
 
+nosql_connection_string : !Parse ["os.environ.get('nosql_connection_string')"]
+nosql_db_name : !Parse ["os.environ.get('nosql_db_name')"]
 
+database_type : !Parse ["os.environ.get('DATABASE_TYPE')"]
+database_server : !Parse ["os.environ.get('DATABASE_SERVER')"]
+database_name : !Parse ["os.environ.get('DATABASE_NAME')"]
+database_username : !Parse ["os.environ.get('DATABASE_USERNAME')"]
+database_password : !Parse ["os.environ.get('DATABASE_PASSWORD')"]

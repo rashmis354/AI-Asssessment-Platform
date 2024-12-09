@@ -43,3 +43,14 @@ api_key = config_details ['api_key']
 api_version = config_details ['api_version']
 model_deployment_name = config_details ['model_deployment_name']
 
+# assessment_data_model = config_details['']['assessment_data_model']
+
+
+nosql_connection_string = config_details['nosql_connection_string']
+nosql_db_name = config_details['nosql_db_name']
+
+database_type = config_details['database_type']
+database_server = config_details['database_server']
+database_name = config_details['database_name']
+database_username = config_details['database_username']
+database_password = config_details['database_password']

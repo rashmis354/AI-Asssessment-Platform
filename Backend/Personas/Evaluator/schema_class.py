@@ -18,3 +18,7 @@ class SkillBasedAssessmentSchema(BaseModel):
     assessment_title: str
     selectedStacks: List[str]
     stackDetails: List[stackDetails]
+
+class StatusCheck(BaseModel):
+    assessment_id: str
+    assessment_type: str

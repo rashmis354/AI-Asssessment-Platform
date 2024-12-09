@@ -1,3 +1,4 @@
+nohup.out
 ai-assessment-venv
 Backend/.env
 Backend/logs
@@ -6,7 +7,8 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
+Personas/Evaluator/__pycache__/
+Personas/Evaluator/routers/__pycache__
 Backend/__pycache__/
 Backend/modules/__pycache__/
 Backend/modules/Utils/__pycache__
