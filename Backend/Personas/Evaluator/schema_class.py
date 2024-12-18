@@ -12,7 +12,11 @@ class stackDetails(BaseModel):
     technology: str
     questions: QuestionType
     complexity:  Literal['Beginner', 'Intermediate', 'Complex', 'Advanced'] = Field(..., description="Complexity level of the assessment")
-    
+
+
+class EvaluatorDashbosardSchema(BaseModel):
+    evaluator_id: str
+        
 class SkillBasedAssessmentSchema(BaseModel):
     evaluator_id: str
     assessment_title: str

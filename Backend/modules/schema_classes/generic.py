@@ -10,6 +10,5 @@ class APIResponse:
         self.message = message
         self.data = data 
         
-class StatusCheck(BaseModel):
+class QnA(BaseModel):
     assessment_id: str
-    assessment_type: str

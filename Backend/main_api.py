@@ -15,9 +15,9 @@ try:
 except Exception as e:
     print("Log Folder Creation Failed-" + str(e))
 
-# import routers.engine as engine
+import Personas.engine as engine
 import Personas.Evaluator.routers.create_assessment as evaluator_create_assesment
-
+import Personas.Evaluator.routers.manage_assessment as manage_assessment
 from modules.utils.generate_log_file import logger
 
 origins = ["*"]
@@ -31,10 +31,11 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["upload_id","NDA","X-Session-Id"],
+    expose_headers=["upload_id","X-Session-Id"],
 )
-# app.include_router(engine.router)
+app.include_router(engine.router)
 app.include_router(evaluator_create_assesment.router)
+app.include_router(manage_assessment.router)
 logger.info("----------------------Service Restarted----------------")
 # app.mount("/assets", StaticFiles(directory="dist/assets", html=True), name="assets")
 
